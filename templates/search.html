@@ -1,0 +1,106 @@
+{% extends 'navbar.html' %}
+<html>
+    <head>
+        {% block title %} Movie Search {% endblock %}
+
+        {% block css %}
+            <style>
+                body {
+                    background-color: #333;
+                    color: white;
+                    margin: 0;
+                    font-family: Arial, sans-serif;
+                }
+
+                .search-container {
+                    display: flex;
+                    justify-content: center;
+                    flex-direction: column;
+                    align-items: center;
+                    margin-top: 100px;
+                }
+
+                .search-box {
+                    background-color: #1a1a1a;
+                    border: none;
+                    color: #f2f2f2;
+                    padding: 20px 20px;
+                    width: 400px;
+                    font-size: 16px;
+                    margin-top: 20px;
+                    margin-bottom: 17px;
+                }
+
+                .search-button {
+                    width: 30%;
+                    background-color: #4CAF50;
+                    color: white;
+                    padding: 14px 20px;
+                    margin: 8px 0;
+                    border: none;
+                    border-radius: 4px;
+                    cursor: pointer;
+                }
+
+                .search-button:hover {
+                    background-color: green;
+                }
+
+                .error-message {
+                    color: red;
+                    margin-bottom: 20px;
+                    text-align: center;
+                }
+
+                .movie-container {
+                    border: 2px solid #4CAF50;
+                    border-radius: 8px;
+                    padding: 20px;
+                    margin-top: 20px;
+                    text-align: center;
+                }
+
+                .movie-card {
+                    margin-right: 20px;
+                }
+
+                .movie-card h2 {
+                    margin-bottom: 10px;
+                }
+
+                .movie-card img {
+                    width: 200px;
+                    height: 300px;
+                }
+                .error-message {
+                    color: red;
+                    margin-bottom: 20px;
+                    text-align: center;
+                }
+            </style>
+        {% endblock %}
+    </head>
+
+    <body>
+        {% block content %}
+            <form method="post" action="search">
+                {% csrf_token %}
+                <div class="search-container">
+                    <p style="margin-bottom: 20px;">Search for a movie by name!</p>
+                    <input type="text" class="search-box" placeholder="Search movies..." name="search_mov" value="{{ searched_movie }}">
+                    <input type="submit" class="search-button" name="search" value="Search">
+                </div>
+            </form>
+
+            <div class="movie-container">
+                <p class="error-message">{{ error }}</p>
+                <h2>{{ name }}</h2>
+                <p>{{ summary }}</p>
+                <p><strong>Genre:</strong> {{ genre }}</p>
+                <p><strong>Cast:</strong> {{ cast }}</p>
+                <p><strong>Director:</strong> {{ director }}</p>
+            </div>
+
+        {% endblock %}
+    </body>
+</html>

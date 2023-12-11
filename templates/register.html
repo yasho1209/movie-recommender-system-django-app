@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  background-color: #333;
+  color: #fff;
+}
+
+form {
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type="submit"] {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: green;
+}
+
+.error-message {
+                    color: red;
+                    margin-bottom: 20px;
+                    text-align: center;
+                }
+
+</style>
+</head>
+<body>
+
+<form method="post" action="register">
+  {% csrf_token %}
+  <label for="name">Name:</label><br>
+  <input type="text" id="name" name="name" value="{{ nm }}"><br>
+  <label for="email">Email:</label><br>
+  <input type="email" id="email" name="email" value="{{ email }}"><br>
+  <label for="username">Username:</label><br>
+  <input type="text" id="username" name="username"><br>
+  <label for="password">Password:</label><br>
+  <input type="password" id="password" name="password" value="{{ pw }}"><br>
+    <label for="country">Country:</label><br>
+  <input type="text" id="country" name="country" value="{{ cty }}"><br>
+  <label for="age">Age:</label><br>
+  <input type="number" id="age" name="age" value="{{ age }}"><br><br>
+  <input type="submit" value="Submit" name="register">
+</form>
+
+<p class="error-message">{{ err }}</p>
+
+</body>
+</html>

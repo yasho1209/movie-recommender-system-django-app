@@ -1,0 +1,80 @@
+{% extends 'navbar.html' %}
+<html>
+<head>
+    {% block title %}About{% endblock %}
+    {% block css %}
+    <style>
+
+        body {
+            background-color: #1a1a1a;
+            color: #f2f2f2;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            text-align: center;
+            color: #ffffff;
+        }
+
+        p {
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 80px auto;
+        }
+
+        .content {
+            padding: 20px;
+            border: 1px solid #666666;
+            border-radius: 10px;
+            background-color: #333333;
+        }
+
+        a {
+            color: #ffffff;
+        }
+
+.home-btn {
+    display: block;
+    margin: 40px auto 8px; /* Center the button horizontally and adjust top margin */
+    width: 30%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.home-btn:hover {
+    background-color: green;
+}
+
+
+
+    </style>
+    {% endblock %}
+</head>
+
+<body>
+{% block content %}
+    <div class="container">
+        <div class="content">
+            <h1>About Us</h1>
+            <p>
+    This is a placeholder text for my Django web app project. I am currently learning and developing a movie recommender system that offers users five movie recommendations based on their search queries. The website consists of a login page, a registration page, a movie recommender page, and a movie search page.
+</p>
+<p>
+    In response to the question about how I generate recommendations, I have implemented Python code that leverages the IMDB top 5000 movies database. Using cosine similarity, I identify the six most closely related movies to each input, providing a personalized set of recommendations.
+</p>
+<p>Hope you find it interesting!</p>
+
+        </div>
+    </div>
+    <a href="home"><button class="home-btn">Back To Home</button></a>
+{% endblock %}
+</body>
+</html>

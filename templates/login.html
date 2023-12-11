@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Login Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1a1a1a;
+            color: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .login-box {
+            width: 300px;
+            background: #333;
+            padding: 40px;
+            border: 1px solid #555;
+            border-radius: 5px;
+        }
+
+        .login-box h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .login-box input[type="text"],
+        .login-box input[type="password"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #555;
+            border-radius: 5px;
+            background-color: #1a1a1a;
+            color: #f2f2f2;
+        }
+
+        .login-box input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            border: 0;
+            background: #4caf50;
+            color: #f2f2f2;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .login-box input[type="submit"]:hover {
+            background: green;
+        }
+
+        .error-message {
+            color: red;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        a {
+        color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="login-box">
+        <h2>Login</h2>
+        <form action="/" method="post">
+            {% csrf_token %}
+            <span id="error" class="error-message"></span>
+            <input type="text" name="username" placeholder="Username" value="{{ un }}" required><br>
+            {% if user_not_found %}
+            <p class="error-message">{{ user_not_found }}</p>{% endif %}
+            <input type="password" name="password" placeholder="Password" value="{{ pw }}" required><br>
+            {% if incorrect_password %}
+            <p class="error-message">{{ incorrect_password }}</p>{% endif %}
+            {{form.captcha}}
+            {% if incorrect_captcha %}
+            <p class="error-message">{{ incorrect_captcha }}</p>{% endif %}
+            <a href="register">Register</a><br><br>
+            <input type="submit" value="Login" name="login">
+        </form>
+    </div>
+</body>
+
+</html>

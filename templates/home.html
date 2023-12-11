@@ -1,0 +1,24 @@
+{% extends 'navbar.html' %}
+<html>
+<head>
+    {% block title %} Home {% endblock %}
+    {% load static %}
+
+    {% block css %}
+        <link href="{% static 'css/home.css' %}" rel="stylesheet">
+        <style>
+            .img {
+                width: 50%; /* Set the desired width */
+                height: 625px; /* Maintain aspect ratio */
+            }
+        </style>
+    {% endblock %}
+</head>
+<body>
+    {% block content %}
+        <div>
+            <img src="{% static 'images/logo.png' %}" alt="Logo" class="img">
+        </div>
+    {% endblock %}
+</body>
+</html>

@@ -1,0 +1,13 @@
+body {
+            text-align: center; /* Center the content horizontally */
+        }
+        .image-container {
+            margin: 20px auto; /* Add some margin and center the container vertically */
+            max-width: 50%; /* Set a maximum width for the image container */
+        }
+        .image-container img {
+            max-height: 50px; /* Set a smaller maximum height for the image */
+            width: auto; /* Allow the width to adjust accordingly */
+            display: block; /* Remove any extra spacing below the image */
+            margin: 0 auto; /* Center the image within its container */
+        }
